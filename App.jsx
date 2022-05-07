@@ -8,9 +8,9 @@ import SignUpScreen from "./src/screens/SignUpScreen";
 
 export default function App() {
 	// return <MemoDetailScreen />;
-	// return <MemoListScreen />;
+	return <MemoListScreen />;
 	// return <MemoEditScreen />;
 	// return <MemoCreateScreen />;
 	// return <LoginScreen />;
-	return <SignUpScreen />;
+	// return <SignUpScreen />;
 }

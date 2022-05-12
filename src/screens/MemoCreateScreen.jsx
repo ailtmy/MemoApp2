@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { View, StyleSheet, TextInput, Alert } from "react-native";
 import CircleButton from "../components/CircleButton";
 import KeyboardSafeView from "../components/KeyboardSafeView";
 import firebase from "firebase";
@@ -16,11 +16,10 @@ export default function MemoCreateScreen(props) {
 			bodyText,
 			updatedAt: new Date(),
 		})
-			.then((docRef) => {
-				console.log("created", docRef.id);
+			.then(() => {
 				navigation.goBack();
 			})
-			.catch((error) => console.log("Error", error));
+			.catch((error) => Alert.alert(error.code));
 	}
 
 	return (

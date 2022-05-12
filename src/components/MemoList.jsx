@@ -31,9 +31,9 @@ export default function MemoList(props) {
 					text: "削除する",
 					style: "destructive",
 					onPress: () => {
-						ref.delete().catch(() =>
-							Alert.alert("削除に失敗しました")
-						);
+						ref.delete()
+							.then(() => console.log(ref))
+							.catch(() => Alert.alert("削除に失敗しました"));
 					},
 				},
 			]);

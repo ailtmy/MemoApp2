@@ -4,6 +4,7 @@ import firebase from "firebase";
 import { View, StyleSheet, TextInput, Alert } from "react-native";
 import CircleButton from "../components/CircleButton";
 import KeyboardSafeView from "../components/KeyboardSafeView";
+import { translateErrors } from "../utils";
 
 export default function MemoEditScreen(props) {
 	const { navigation, route } = props;
@@ -25,7 +26,10 @@ export default function MemoEditScreen(props) {
 				.then(() => {
 					navigation.goBack();
 				})
-				.catch((error) => Alert.alert(error.code));
+				.catch((error) => {
+					const errorMsg = translateErrors(error.code);
+					Alert.alert(errorMsg.title, errorMsg.description);
+				});
 		}
 	}
 
